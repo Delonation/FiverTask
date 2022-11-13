@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+<style>
+body,
+html {
+  margin: 0;
+}
+
+#emptygif {
+  position: absolute;
+  z-index: 200;
+}
+
+#overlayr1 {
+  position: absolute;
+  background: hsl(120, 100%, 50%);
+  opacity: 0.2;
+  width: 300px;
+  height: 160px;
+  z-index: 10;
+  display: none;
+}
+
+#overlayr2 {
+  position: absolute;
+  background: #fff;
+  opacity: 0.2;
+  width: 300px;
+  height: 160px;
+  top: 160px;
+  z-index: 100;
+  display: none;
+}
+</style>
+<title>Online jQuery Editor</title>
+<script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+<script>
+$(document).ready(function() {
+
+        var id = "r1"
+        $('#overlay' + id).show();
+
+
+});
+</script>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- <img src="" width="300" height="350" usemap="#location-map" id="emptygif" />
+<div id="overlayr1">&nbsp;</div>
+<div id="overlayr2">&nbsp;</div> -->
+<!-- <img src="assets/images/model.png" width="300" height="350" border="0" />
+<map name="location-map" id="location-map">
+  <area shape="rect" coords="0,0,300,160" href="#" id="r1" />
+  <area shape="rect" coords="0,161,300,350" href="#" id="r2"/>
+</map> -->
+<br>
+<br>
+<img src="assets/images/model.png" usemap="#image-map">
+
+<map name="image-map">
+  <area target="" alt="1" title="1" href="https://google.com" coords="1484,1272,1375,1337" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1349,1335,1253,1272" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1238,1193,1353,1250" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1376,1199,1486,1254" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1237,1117,1351,1180" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1382,1120,1483,1171" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1237,1050,1348,1105" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1372,1044,1496,1099" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1236,981,1343,1022" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1379,977,1485,1028" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1237,899,1348,954" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1368,892,1482,960" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1230,811,1349,877" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1376,812,1477,876" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1215,731,1354,798" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1376,734,1480,794" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1211,657,1343,717" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1373,660,1484,714" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1209,580,1349,640" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1373,588,1488,641" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1211,498,1348,561" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1373,508,1484,571" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1215,422,1354,493" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1381,431,1496,492" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1210,357,1351,413" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1375,356,1488,411" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1213,277,1352,341" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1375,278,1495,337" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1214,205,1351,265" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1373,200,1499,269" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1223,129,1356,189" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="1367,125,1507,190" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="988,1239,1105,1303" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="845,1238,971,1303" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="852,1157,968,1225" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="988,1157,1111,1223" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="827,1078,971,1143" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="990,1082,1105,1150" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="832,1007,975,1075" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="990,1003,1111,1076" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="827,928,976,996" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="990,929,1110,1001" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="826,853,972,922" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="986,855,1110,918" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="830,775,972,846" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="988,777,1108,838" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="826,699,971,767" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="826,619,976,689" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="995,703,1105,765" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="990,626,1110,689" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="830,545,976,615" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="988,550,1116,619" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="840,477,971,538" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="985,478,1116,538" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="464,777,591,842" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="613,777,745,842" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="447,698,592,771" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="609,701,742,772" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="442,620,591,690" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="610,621,742,687" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="445,546,591,611" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="606,549,736,619" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="455,475,591,540" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="606,474,736,539" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="64,127,207,187" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="220,125,340,190" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="71,200,208,267" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="218,203,344,260" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="64,276,207,342" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="218,276,340,340" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="62,348,206,416" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="219,355,344,416" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="60,423,206,491" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="215,425,344,494" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="60,502,207,572" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="221,504,346,571" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="57,582,214,645" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="225,580,341,648" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="57,653,206,723" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="224,654,354,721" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="62,733,209,803" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="218,732,344,804" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="62,808,206,878" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="218,811,346,872" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="60,887,206,958" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="218,890,348,955" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="57,965,209,1034" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="220,966,346,1025" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="57,1036,206,1108" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="218,1040,346,1105" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="56,1109,209,1188" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="214,1113,348,1175" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="65,1191,207,1257" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="219,1189,340,1246" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="80,1269,206,1337" shape="rect">
+  <area target="" alt="" title="" href="https://google.com" coords="225,1270,322,1338" shape="rect">
+</map>
+
+</body>
+<script src="./assets/js/imageMapResizer.js"></script>
+</html>

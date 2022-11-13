@@ -1,0 +1,52 @@
+body {
+    background-image: url('../Images/bg.jpg');
+}
+
+.mainContent {
+    margin-top: 10%;
+}
+
+@media only screen and (max-width: 600px) {
+    .mainContent {
+        margin-top: 50%;
+    }
+}
+
+.btn-group>.btn:active,
+.btn-group>.btn:focus,
+.btn-group>.btn:hover,
+.btn-check:checked+.btn-outline-secondary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: white;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 50%);
+}
+
+#actionButtons {
+    text-align: right;
+}
+
+.markSub {
+    background-color: red;
+}
+
+.markVerb {
+    background-color: #0baad9;
+}
+
+.markObj {
+    background-color: #0bd92a;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.text-success{
+    color: #28a745!important;
+}
