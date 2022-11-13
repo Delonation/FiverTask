@@ -1,0 +1,80 @@
+<script>
+    const renderWaitList = (ele, usr) => {
+        document.getElementById("username").value = usr;
+        document.getElementById("username").setAttribute("readonly", "true");
+        document.getElementById("btnCheck").classList.add("hide");
+        btnJoin.classList.add("hide");
+        let newFirstElement = `
+		<div id="waitListForm" style="width: 100%">
+			<div class="_row">
+			<div id="nameInput" style="width: 50%;max-width: 336px;">
+				<input  
+					style="border-radius: 50px; 
+					oninput="disableIcon()"
+					class="text-field_start-lower w-input mb-2"
+					maxlength="256"
+					name="name-3"
+					data-name="Name 3"
+					placeholder="Name"
+					id="input_name"
+				/>
+				<div id="nameError" style="color: #FFBAA5;" class="validateError hidden" >Please provide a valid name.</div>
+				</div>
+			<div id="emailInput" style="width: 50%;max-width: 336px;">
+				<input
+					style="border-radius: 50px; 
+					oninput="disableIcon('emailError')"
+					type="email"
+					class="text-field_start-lower w-input mb-2"
+					maxlength="256"
+					name="email"
+					data-name="email"
+					placeholder="Email"
+					id="input_email"
+				/>
+				<div id="emailError" style="color: #FFBAA5;" class="validateError hidden" >Please provide a valid email.</div>
+				</div>
+			</div>
+
+			<div class="_row">
+				<div id="passInput" style="width:50^">
+					<input
+						oninput="checkPassword(false)"
+						type="password"
+						class="text-field_start-lower w-input mb-2"
+						maxlength="256"
+						name="password"
+						data-name="password"
+						placeholder="Password"
+						id="input_pwd"
+					/>
+					<div id="pwdError" class="validateError pwdError hidden" >
+						<span id="sixChar" ><i id="validateChar" class="fa-regular fa-circle-xmark"></i> six characters</span>
+						<span id="letters" ><i id="validateLetter" class="fa-regular fa-circle-xmark"></i> letters</span>
+						<span id="oneNumber" ><i id="validateoneNumber"  class="fa-regular fa-circle-xmark"></i> atleast one number</span>
+						<span id="oneSymbol" ><i id="validateoneSymbol"  class="fa-regular fa-circle-xmark"></i> atleast one symbol</span>
+					</div>
+				</div>
+				<div id="cPwdInput" >
+						<input
+							type="password"
+							oninput="disableFormError('cPwdError')"
+							class="text-field_start-lower w-input mb-2"
+							maxlength="256"
+							name="password"
+							data-name="password"
+							placeholder="Confirm password"
+							id="input_cPwd"
+						/>
+						<div id="cPwdError" style="color: #FFBAA5;" class="validateError hidden" >passwords do not match.</div>
+                        <div class="_row sm_row" style="width:100%">
+                            <a style="width:35%;margin:0 !important;" id="btnBack" onclick="back()" href="#" class="button w-button">Back</a>
+                            <a style="font-size:18px;color: #458B59 !important;font-family: 'Antarctica Extended',sans-serif !important;width:65%;max-width:210px;margin:0 !important;" id="btnsignUpWaitList" style="background-color: white;color: black" onClick="waitListSignUp()" href="#" class="button w-button">Join waitlist</a>
+                        </div>
+					</div>
+			</div>
+		</div>`;
+
+        ele.innerHTML += newFirstElement;
+    };
+</script>

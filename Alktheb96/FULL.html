@@ -1,0 +1,291 @@
+<script>
+    let username;
+    let btnCheck = document.getElementById("btnCheck");
+    let btnJoin = document.getElementById("btnJoinList");
+    let addIcon = document.getElementById("usernameField");
+    let span = document.createElement("span");
+    let uName = document.getElementById("username");
+    span.setAttribute("id", "errorIcon");
+    span.setAttribute("class", "errorIcon");
+    addIcon.appendChild(span);
+    uName.setAttribute("oninput", "disableIcon()");
+    btnJoin.setAttribute("onclick", "waitList()");
+    btnJoin.style.color = "Black";
+    btnJoin.style.backgroundColor = "white";
+
+    //must be in lowercase
+    let data = {
+        brands: ["wallmart", "apple"],
+        creators: ["ninja", "auronplay"],
+    };
+
+    const showAlert = (type, msg, color) => {
+        let ele = document.getElementById("message");
+        let err = document.getElementById("errorIcon");
+        ele.classList.remove("hide");
+        ele.classList.add("err");
+        ele.innerHTML = msg;
+        ele.style.color = color;
+        uName.style.color = color;
+        if (type == "error") {
+            err.innerHTML = `<i style="color:#FFBAA5" class="fa-regular fa-circle-xmark"></i>`;
+        } else {
+            err.innerHTML = `<i style="color:#B9EEC8" class="fa-regular fa-circle-check"></i>`;
+        }
+    };
+
+    const disableIcon = () => {
+        document.getElementById("username").style.color = "black";
+        document.getElementById("errorIcon").innerHTML = "";
+        document.getElementById("message").innerHTML = "";
+        if (!btnJoinList.classList.contains("hide")) {
+            btnJoinList.classList.add("hide");
+        }
+    };
+
+    const back = () => {
+        disableIcon();
+        document.getElementById("username").style.color = "black";
+        if (document.getElementById("username").hasAttribute("readonly")) {
+            document.getElementById("username").removeAttribute("readonly");
+        }
+        document.getElementById("btnCheck").classList.remove("hide");
+        btnJoin.classList.add("hide");
+        document.getElementById("waitListForm").remove();
+    };
+
+    const showFromError = (id, errID, iconID) => {
+        if (id == "pwdError") {
+            let q = document.getElementById("iconID");
+            if (errID == "num") {
+                document.getElementById("errId").classList.remove("hidden");
+                document.getElementById("iconID").classList.add("fa-circle-check");
+            } else if (errId == "char") {}
+        } else {
+            document.getElementById(id).classList.remove("hidden");
+        }
+    };
+
+    const disableFormError = (id) => {
+        document.getElementById(id).classList.add("hidden");
+    };
+
+    const waitListSignUp = () => {
+        let name = document.getElementById("input_name");
+        let pwd = document.getElementById("input_pwd");
+        let email = document.getElementById("input_email");
+        let cPwd = document.getElementById("input_cPwd");
+
+        if (
+            name.value != "" &&
+            pwd.value != "" &&
+            email.value != "" &&
+            cPwd.value != ""
+        ) {
+            if (!email.value.match("^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$")) {
+                showFromError("emailError");
+            }
+            if (!pwd.value.match(/\d+/g)) {
+                showFromError("pwdError", "oneNumber", "validateoneNumber");
+            }
+            if (pwd.value != cPwd.value) {
+                {
+                    showFromError("cPwdError");
+                }
+            } else {
+                showAlert("error", "Fields can not be Empty", "FFBAA5");
+            }
+        }
+    };
+
+    const waitList = () => {
+        username = uName.value;
+        showAlert(
+            "success",
+            `<i style="color:yellow" class="fa-solid fa-triangle-exclamation" ></i> You need an <b>@${uName.value}</b> email adress to claim it now`,
+            "#FFBAA5",
+        );
+        renderWaitList(document.getElementById("email-form"));
+        document.getElementById("username").value = username;
+    };
+
+    const renderWaitList = (ele) => {
+        uName.setAttribute("readonly", "true");
+        document.getElementById("btnCheck").classList.add("hide");
+        btnJoin.classList.add("hide");
+        let newFirstElement = `
+	<table id="waitListForm" >
+		<tr>
+			<td>
+				<div id="nameInput" class="user_label ">
+					<input
+	          	oninput="disableIcon()"
+						type="text"
+						class="text-field_start-lower w-input"
+						maxlength="256"
+						name="name-3"
+						data-name="Name 3"
+						placeholder="Name"
+						id="input_name"
+					/>
+				</div>
+	                     <div id="nameError" style="color: #FFBAA5;" class="validateError hidden" >Please provide a valid name.</div>
+			</td>
+			<td>
+				<div id="emailInput" class="user_label ">
+					<input
+	          	oninput="disableIcon()"
+						type="email"
+						class="text-field_start-lower w-input"
+						maxlength="256"
+						name="email"
+						data-name="email"
+						placeholder="Email"
+						id="input_email"
+					/>
+				</div>
+	                     <div id="emailError" style="color: #FFBAA5;" class="validateError hidden" >Please provide a valid email.</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div id="passInput" class="user_label ">
+					<input
+	          	oninput="disableIcon()"
+						type="password"
+						class="text-field_start-lower w-input"
+						maxlength="256"
+						name="password"
+						data-name="password"
+						placeholder="Password"
+						id="input_pwd"
+					/>
+				</div>
+
+			</td>
+			<td>
+				<div id="cPwdInput" class="user_label ">
+					<input
+						type="password"
+	                             oninput="disableFormError('cPwdError')"
+						class="text-field_start-lower w-input"
+						maxlength="256"
+						name="password"
+						data-name="password"
+						placeholder="Confirm password"
+						id="input_cPwd"
+					/>
+				</div>
+	                     <div id="cPwdError" style="color: #FFBAA5;" class="validateError hidden" >Your passwords do not match.</div>
+			</td>
+	                 <tr>
+	                     <td>
+	                         <div id="pwdError" style="color: #FFBAA5"; class="validateError hidden" >
+	                             <span id="sixChar" class="hidden"><i id="validateChar" class="fa-regular"></i> six characters</span><br>
+	                             <span id="oneNumber" class="hidden"><i id="validateoneNumber"  class="fa-regular"></i> atleast one number</span><br>
+	                             <span id="oneSymbol" class="hidden"><i id="validateoneSymbol"  class="fa-regular"></i> atleast one symbol</span>
+	                         </div>
+	                     </td>
+	                     <td></td>
+		</tr>
+	    <tr>
+	        <td style="text-align:right">
+	                 <div style="margin-top:20px;margin-left:20px;">
+	                     <a id="btnBack" onclick="back()" href="#" class="button w-button">Back</a>
+	                 </div>
+	             </td>
+	             <td style="text-align:left">
+	                 <div style="margin-top:20px;margin-left:20px;">
+	                     <a id="btnsignUpWaitList" style="background-color: white;color: black" onClick="waitListSignUp()" href="#" class="button w-button">Join waitlist</a>
+	                 </div>
+	             </td>
+	    </tr>
+	</table>`;
+
+        ele.innerHTML += newFirstElement;
+    };
+
+    const syntaxValidation = (uName) => {
+        var regexp1 = new RegExp("^[0-9A-Za-z_.]+$");
+        if (!regexp1.test(uName)) {
+            return false;
+        } else {
+            return true;
+        }
+    };
+
+    const validateDatefromJSON = (uName) => {
+        if (data["brands"].includes(uName)) {
+            showAlert(
+                "error",
+                `This username has been reserved for the brand:<b>${uName.toUpperCase()}</b>.<br>
+	             You need an <b>@${uName}.com</b> email adress to claim it now<br>
+	             or you can contact us via email so we can verify you.`,
+                "#FFBAA5",
+            );
+            btnJoinList.classList.remove("hide");
+            document.getElementById("errorIcon").innerHTML =
+                '<i class="fa-solid fa-triangle-exclamation"></i>';
+            return true;
+        } else if (data["creators"].includes(uName)) {
+            showAlert(
+                "error",
+                `This username has been reserved for the brand:<b>${uName.toUpperCase()}</b>.
+	             <br>You need an <b>@${uName}.com</b> email adress to claim it now<br>
+	             or you can contact us via email so we can verify you.`,
+                "#FFBAA5",
+            );
+            document.getElementById("errorIcon").innerHTML =
+                '<i class="fa-solid fa-triangle-exclamation"></i>';
+            return true;
+        }
+        return false;
+    };
+
+    const cognitoCheck = (uName) => {
+        // PLease Verify your AWS Cognito Check here
+        return true;
+    };
+
+    const doSyntaxCheck = () => {
+        if (uName.value != "") {
+            if (syntaxValidation(uName.value)) {
+                disableIcon();
+                if (cognitoCheck(uName.value)) {
+                    disableIcon();
+                    if (
+                        validateDatefromJSON(
+                            document.getElementById("username").value.toLowerCase(),
+                        )
+                    ) {
+                        // DO SOMETHING HERE
+                    } else {
+                        showAlert(
+                            "success",
+                            "Awesome, this username is still available!",
+                            "#B9EEC8",
+                        );
+                        btnJoinList.classList.remove("hide");
+                    }
+                } else {
+                    showAlert(
+                        "error",
+                        "Sorry, this username is already taken",
+                        "#FFBAA5",
+                    );
+                }
+            } else {
+                showAlert(
+                    "error",
+                    "Username can only contain letters, numbers, periods, and underscores",
+                    "#FFBAA5",
+                );
+            }
+        } else {
+            showAlert("error", "The username can not be empty.", "#FFBAA5");
+        }
+    };
+    btnCheck.addEventListener("click", () => {
+        doSyntaxCheck();
+    });
+</script>

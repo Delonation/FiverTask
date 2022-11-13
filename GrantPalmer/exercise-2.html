@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise-2</title>
+    <style>
+        .text-center {
+            text-align: center;
+        }
+        
+        .mt-2 {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text-center">
+        <input id="decibels" type="number" />
+        <label>Enter the results of hearing test (dB)</label>
+        <br />
+        <button class="mt-2" onclick="getRange()">click to analyze</button>
+        <hr />
+        <div id="outputDiv"></div>
+    </div>
+
+    <script>
+        const getRange = () => {
+            let range = document.getElementById("decibels").value;
+            if (range != "") {
+                document.getElementById("outputDiv").innerHTML = nameforRange(
+                    document.getElementById("decibels").value,
+                );
+            } else {
+                document.getElementById(
+                    "outputDiv",
+                ).innerHTML = `Please enter the value in decibels(db)`;
+            }
+        };
+
+        const nameforRange = (range) => {
+            if (range < 26) {
+                return "Normal Hearing";
+            } else if (range >= 26 && range <= 39) {
+                return "Mild hearing loss";
+            } else if (range >= 40 && range <= 69) {
+                return "Moderate hearing loss";
+            } else if (range >= 70 && range <= 94) {
+                return "Severe hearing loss";
+            } else if (range >= 95) {
+                return "Profound hearing loss";
+            }
+        };
+    </script>
+</body>
+
+</html>

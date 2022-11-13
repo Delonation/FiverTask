@@ -1,0 +1,244 @@
+<script>
+    let btnCheck = document.getElementById("btnCheck");
+    let btnJoin = document.getElementById("btnJoinList");
+    btnJoin.style.color = "Black";
+    btnJoin.style.backgroundColor = "white";
+    let username;
+    let uName = document.getElementById("username");
+    //must be in lowercase
+    let data = {
+        brands: ["wallmart", "apple"],
+        creators: ["ninja", "auronplay"],
+    };
+
+    const showError = (msg) => {
+        let ele = document.getElementById("message");
+        ele.classList.remove("hide");
+        ele.classList.add("err");
+        ele.innerHTML = msg;
+        ele.style.color = "#FFBAA5";
+        uName.style.color = "#FFBAA5";
+        let err = document.getElementById("errorIcon");
+        err.innerHTML = `<i style="color:#FFBAA5" class="fa-regular fa-circle-xmark"></i>`;
+    };
+
+    const showSuccess = (msg, color) => {
+        let ele = document.getElementById("message");
+        ele.classList.remove("hide");
+        ele.classList.add("err");
+        ele.style.color = "#B9EEC8;";
+        ele.innerHTML = msg;
+        console.log(color);
+        if (color != undefined) {
+            ele.style.color = color;
+        } else {
+            ele.style.color = "#B9EEC8";
+        }
+        let err = document.getElementById("errorIcon");
+        err.innerHTML = `<i style="color:#B9EEC8" class="fa-regular fa-circle-check"></i>`;
+    };
+
+    const disableIcon = () => {
+        console.log("DISABLED");
+        uName.style.color = "black";
+        document.getElementById("errorIcon").innerHTML = "";
+        document.getElementById("message").innerHTML = "";
+        if (!btnJoinList.classList.contains("hide")) {
+            btnJoinList.classList.add("hide");
+        }
+    };
+
+    const back = () => {
+        disableIcon();
+        if (document.getElementById("username").hasAttribute("readonly")) {
+            console.log("ASdasd");
+            document.getElementById("username").removeAttribute("readonly");
+        }
+        document.getElementById("btnCheck").classList.remove("hide");
+        btnJoin.classList.add("hide");
+        document.getElementById("waitListForm").remove();
+    };
+
+    const waitListSignUp = () => {
+        let name = document.getElementById("input_name");
+        let pwd = document.getElementById("input_pwd");
+        let email = document.getElementById("input_email");
+        let cPwd = document.getElementById("input_cPwd");
+
+        if (
+            name.value != "" &&
+            pwd.value != "" &&
+            email.value != "" &&
+            cPwd.value != ""
+        ) {
+            if (pwd.value == cPwd.value) {
+                console.log("JOIN LIST FUNCTION");
+            } else {
+                showError("Password does not match");
+            }
+        } else {
+            showError("Fields can not be Empty");
+        }
+    };
+
+    const waitList = () => {
+        username = uName.value;
+        showSuccess(
+            `<i style="color:yellow" class="fa-solid fa-triangle-exclamation" ></i> You need an <b>@${uName.value}</b> email adress to claim it now`,
+            "#FFBAA5",
+        );
+        renderWaitList(document.getElementById("email-form"));
+        document.getElementById("username").value = username;
+    };
+
+    const renderWaitList = (ele) => {
+        uName.setAttribute("readonly", "true");
+        document.getElementById("btnCheck").classList.add("hide");
+        btnJoin.classList.add("hide");
+        let newFirstElement = `
+	  <table id="waitListForm" >
+				<tr>
+					<td>
+						<div id="nameInput" class="user_label ">
+							<input
+	            	oninput="disableIcon()"
+								type="text"
+								class="text-field_start-lower w-input"
+								maxlength="256"
+								name="name-3"
+								data-name="Name 3"
+								placeholder="Name"
+								id="input_name"
+							/>
+						</div>
+					</td>
+					<td>
+						<div id="emailInput" class="user_label ">
+							<input
+	            	oninput="disableIcon()"
+								type="email"
+								class="text-field_start-lower w-input"
+								maxlength="256"
+								name="email"
+								data-name="email"
+								placeholder="Email"
+								id="input_email"
+							/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div id="passInput" class="user_label ">
+							<input
+	            	oninput="disableIcon()"
+								type="password"
+								class="text-field_start-lower w-input"
+								maxlength="256"
+								name="password"
+								data-name="password"
+								placeholder="Password"
+								id="input_pwd"
+							/>
+						</div>
+					</td>
+					<td>
+						<div id="cPwdInput" class="user_label ">
+							<input
+	            	oninput="disableIcon()"
+								type="password"
+								class="text-field_start-lower w-input"
+								maxlength="256"
+								name="password"
+								data-name="password"
+								placeholder="Confirm password"
+								id="input_cPwd"
+							/>
+						</div>
+					</td>
+				</tr>
+	      <tr>
+	          <td>
+                    <div style="margin-top:20px;margin-left:20px;">
+                        <a id="btnBack" onclick="back()" href="#" class="button w-button">Back</a> 
+                        <a id="btnsignUpWaitList" style="background-color: white;color: black" onClick="waitListSignUp()" href="#" class="button w-button">Join waitlist</a>
+                    </div>
+                </td>
+	      </tr>
+			</table>`;
+
+        ele.innerHTML += newFirstElement;
+    };
+    const syntaxValidation = (uName) => {
+        var regexp1 = new RegExp("^[0-9A-Za-z_.]+$");
+        if (!regexp1.test(uName)) {
+            return false;
+        } else {
+            return true;
+        }
+    };
+
+    const validateDatefromJSON = (uName) => {
+        if (data["brands"].includes(uName)) {
+            showError(
+                `This username has been reserved for the brand:<b>${uName.toUpperCase()}</b>.<br>You need an <b>@${uName}.com</b> email adress to claim it now<br>or you can contact us via email so we can verify you.`,
+            );
+            btnJoinList.classList.remove("hide");
+            document.getElementById("errorIcon").innerHTML =
+                '<i class="fa-solid fa-triangle-exclamation"></i>';
+            return true;
+        } else if (data["creators"].includes(uName)) {
+            showError(
+                `This username has been reserved for the brand:<b>${uName.toUpperCase()}</b>.<br>You need an <b>@${uName}.com</b> email adress to claim it now<br>or you can contact us via email so we can verify you.`,
+            );
+            document.getElementById("errorIcon").innerHTML =
+                '<i class="fa-solid fa-triangle-exclamation"></i>';
+            console.log("EXISTS IN CREAT");
+            return true;
+        }
+        return false;
+    };
+
+    const cognitoCheck = (uName) => {
+        // PLease Verify your AWS Cognito Check here
+        return true;
+    };
+
+    const doSyntaxCheck = () => {
+        if (uName.value != "") {
+            if (syntaxValidation(uName.value)) {
+                disableIcon();
+                if (cognitoCheck(uName.value)) {
+                    disableIcon();
+                    if (
+                        validateDatefromJSON(
+                            document.getElementById("username").value.toLowerCase(),
+                        )
+                    ) {} else {
+                        showSuccess("Awesome, this username is still available!");
+                        btnJoinList.classList.remove("hide");
+                    }
+                } else {
+                    showError("Sorry, this username is already taken");
+                }
+            } else {
+                showError(
+                    "Username can only contain letters, numbers, periods, and underscores",
+                );
+            }
+        } else {
+            showError("The username can not be empty.");
+        }
+    };
+    btnCheck.addEventListener("click", () => {
+        doSyntaxCheck();
+    });
+
+    let addIcon = document.getElementById("usernameField");
+    let span = document.createElement("span");
+    span.setAttribute("id", "errorIcon");
+    span.setAttribute("class", "errorIcon");
+    addIcon.appendChild(span);
+    uName.setAttribute("oninput", "disableIcon()");
+    btnJoin.setAttribute("onclick", "waitList()");
+</script>

@@ -1,0 +1,154 @@
+/* reset styles  */
+
+html {
+    font-size: 14px !important;
+}
+
+article,
+aside,
+body,
+div,
+footer,
+header,
+h1,
+h2,
+p {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* / body and page container /  */
+
+body {
+    background-color: ivory;
+}
+
+.container {
+    max-width: 640px;
+    margin: 0 auto;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    position: relative;
+    background-color: white;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* / header section /  */
+
+header {
+    background-color: rgb(140, 198, 63);
+    padding: 0.5em;
+    text-align: center;
+}
+
+header>p {
+    font-style: italic;
+}
+
+h1 {
+    font-size: 2em;
+    line-height: 1.4em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 0px 0px 10px ivory;
+}
+
+
+/* main content  */
+
+article .firstparagraph::first-line {
+    font-weight: bold;
+}
+
+article {
+    padding: 3%;
+    width: 55%;
+    position: absolute;
+    left: 0;
+}
+
+article p {
+    margin-bottom: 1em;
+}
+
+
+/* sidebar  */
+
+aside {
+    background-color: #c8f098;
+    padding: 2%;
+    width: 35%;
+    position: relative;
+    left: 61%;
+}
+
+aside h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.6em;
+    margin: 0 0 0.4em;
+}
+
+aside p {
+    margin: 0 0 1em 1em;
+}
+
+aside p.accent {
+    font-weight: bold;
+    margin: 0;
+}
+
+
+/* footer section  */
+
+footer p.accent {
+    font-weight: bold;
+}
+
+footer {
+    padding: 0.5em;
+    clear: both;
+    color: white;
+    background-color: black;
+    text-align: right;
+}
+
+.price>ins>span,
+.price>ins>span>bdi>span {
+    color: red !important;
+}
+
+
+/* Media Print */
+
+@media print {
+    aside,
+    body,
+    footer,
+    header,
+    .container {
+        color: #000;
+        background-color: #ffff;
+        border: 0;
+    }
+    body {
+        width: 100%;
+    }
+    header {
+        border-bottom: 2px solid black;
+    }
+    aside {
+        border-left: 2px solid black;
+    }
+    footer {
+        border-top: 2px solid black;
+    }
+}
+
+@page {
+    margin: 1in;
+}

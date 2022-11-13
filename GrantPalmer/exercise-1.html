@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise-1</title>
+    <style>
+        .text-center {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-content: space-around;
+        }
+        
+        .mb-1 {
+            margin-bottom: 5px !important;
+        }
+        
+        .btn {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Your Coffee Shop</h1>
+    <div class="text-center">
+        <label class="mb-1" for="amount">Enter the amount you want to laoded into your card</label
+			>
+			<input class="mb-1" id="amount" type="number" />
+			<button
+				class="btn mb-1"
+				onclick="card_loader(document.getElementById('amount').value)"
+			>
+				Load
+			</button>
+			<div id="outputDiv"></div>
+		</div>
+
+		<script>
+			const card_loader = (value) => {
+				if (value == "" || value == 0) {
+					document.getElementById("outputDiv").innerHTML =
+						"Please enter a dollar amount";
+					document.getElementById("amount").focus();
+				} else {
+					if (value >= 100) {
+						console.log(value >= 100);
+						document.getElementById(
+							"outputDiv",
+						).innerHTML = `$${value} with $${percentage(
+							7,
+							value,
+						)} as a 7% bonus hence a total of $${
+							parseInt(value) + parseInt(percentage(7, value))
+						} has been added to your card.`;
+					} else if (value >= 50) {
+						document.getElementById(
+							"outputDiv",
+						).innerHTML = `$${value} with $${percentage(
+							5,
+							value,
+						)} as a 5% bonus hence a total of $${
+							parseInt(value) + parseInt(percentage(5, value))
+						} has been added to your card.`;
+					} else {
+						document.getElementById(
+							"outputDiv",
+						).innerHTML = `$${value} has been added to your card.`;
+					}
+				}
+			};
+
+			const percentage = (percent, total) => {
+				return ((100 * percent) / total).toFixed(2);
+			};
+		</script>
+	</body>
+</html>

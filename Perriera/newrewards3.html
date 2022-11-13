@@ -1,0 +1,862 @@
+<?php
+/**
+ * Template Name: STEM AWARDS TEMPLATE 3
+ * Description: template for showing STEM awards 3
+ * 
+ * @package bootstrap-basic
+ */
+
+get_header();
+
+/**
+ * determine main column size from actived sidebar
+ */
+$main_column_size = bootstrapBasicGetMainColumnSize();
+?>
+<style>
+    .page_banner {
+        margin-bottom: -1px;
+    }
+
+    .tab-content {
+        border-top: 1px solid #DDD !important;
+    }
+
+    input.vfb-checkbox,
+    input[type="checkbox"].vfb-checkbox,
+    input.vfb-radio,
+    input[type="radio"].vfb-radio {
+        margin: 10px 10px 30px 10px;
+    }
+
+    ul.awards li {
+        border-bottom: 1px solid #EEE;
+        padding: 10px 0;
+    }
+
+    .panel-default>.cpanel1 {
+        background: #1a3560;
+        color: #fff;
+    }
+
+    .awards-title {
+        font-size: ;
+        font-weight: bolder;
+        text-align: center;
+    }
+
+    .awards-title2 {
+        font-size: 24px;
+        font-weight: bolder;
+
+    }
+
+    .thumbnail {
+        min-height: 385px !important;
+        box-shadow: 0 4px 8px 0 rgba(229, 248, 255);
+        transition: 0.3s;
+        min-width: 40%;
+        border-radius: 5px;
+    }
+
+    .thumbnail-description {
+        min-height: 40px;
+    }
+
+    .mtshort {
+        margin-top: 10% !important;
+    }
+
+    .mtlong {
+        margin-top: 20% !important;
+    }
+
+    @media only screen and (max-width: 600px) {
+
+        .mtlong,
+        .mtshort {
+            margin-top: 0% !important;
+        }
+    }
+</style>
+
+
+<div class="page_banner">
+    <div class="container">
+
+        <h1 class="entry-title">
+            <?php the_title(); ?>
+        </h1>
+
+        <ol class="breadcrumb">
+            <?php the_breadcrumb(); ?>
+        </ol>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <img class="img-responsive img-rounded"
+                        src="https://ctsciencecenter.org/wp-content/uploads/2020/03/Awards_2020_Slider_1120x350.jpg"
+                        title="STEM Awards" alt="Stem Awards 2019" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="panel panel-default foundation virtual" id="eon">
+                <div class="panel-heading cpanel1">
+                    <div class="row ">
+                        <div class="col-xs-6">
+                            <h4 style="margin:0;padding-top:3px; color:white; text-transform:uppercase;">Connecticut
+                                Science Center STEM Achievement Awards</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <img style="max-width:150px;max-height:200px;width:100%;"
+                                class="img-responsive img-thumbnail"
+                                src="https://ctsciencecenter.org/wp-content/uploads/2019/03/Awards-Breakfast_2019_Thumbnail_350x350.jpg"
+                                alt="stem achievement awards logo" data-uw-rm-ima="ai">
+                        </div>
+                        <div class="col-sm-10">
+                            <div>
+
+                                <p>Each year, the Connecticut Science Center celebrates the achievements of
+                                    professionals,
+                                    groups, advocates, businesses, students, and leaders who share our mission to
+                                    inspire
+                                    lifelong learning through interactive and innovative experiences that explore our
+                                    changing world through science. Winners will be selected by the 2022 Gala Committee
+                                    based on overall contributions to STEM in the region, opening STEM Careers to
+                                    diverse
+                                    audiences, and impacts on STEM Education in the community.
+                                </p>
+                                <p><b>Awards will be presented at the Connecticut Science Center Gala: Back to the
+                                        Future
+                                        on Saturday, October 1, 2022 at the Connecticut Convention Center.</b></p>
+                                <p><b>The STEM Achievement Awards are presented by Stanley Black & Decker.</b></p>
+                                <p><b>Click <a href="https://ctsciencecenter.org/support/annual-gala/"
+                                            data-uw-rm-brl="false" aria-label="Click"
+                                            uw-rm-vague-link-id="https://ctsciencecenter.org/support/annual-gala/$here"
+                                            data-uw-rm-vglnk=""><b>here</b></a> to learn more about the Connecticut
+                                        Science Center Gala: Back to the Future on Saturday, October 1, 2022 and to
+                                        purchase tickets.</b></p>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-2">&nbsp;</div>
+                            <div class="col-md-8">
+                                <div class="row space-16">&nbsp;</div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="thumbnail">
+                                            <div class="caption text-center">
+                                                <div class="position-relative">
+                                                    <img src="https://ctsciencecenter.org/wp-content/uploads/2022/07/Steven-CTSC_WinnerHeadshots2.jpg"
+                                                        style="width:150px;height:150px;" />
+                                                </div>
+                                                <h4 style="font-weight:bold !important;font-size:14px !important;color: black !important;"
+                                                    id="thumbnail-label">
+                                                    K-12 EDUCATOR OF THE YEAR HONOREE</h4>
+                                                <p>Steven T. Arnold</p>
+                                                <div class="thumbnail-description smaller">Kindergarten Teacher,
+                                                    Retired<br>Renbrook</div>
+                                            </div>
+                                            <div class="caption card-footer text-center">
+                                                <ul class="list-inline">
+                                                    <li></li>
+                                                    <li><a onclick='customModel("steve")' data-toggle="modal"
+                                                            data-target="#exampleModalLong">&nbsp;Read More</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="thumbnail">
+                                            <div class="caption text-center">
+                                                <div class="position-relative">
+                                                    <img src="https://ctsciencecenter.org/wp-content/uploads/2022/07/Diane-CTSC_WinnerHeadshots.jpg"
+                                                        style="width:150px;height:150px;" />
+                                                </div>
+                                                <h4 style="font-weight:bold !important;font-size:14px !important;color: black !important;"
+                                                    id="thumbnail-label">
+                                                    HIGHER EDUCATION<br> HONOREE</h4>
+                                                <p>Diane C. Hillyer</p>
+                                                <div class="thumbnail-description smaller">Professor of
+                                                    Mathematics<br>Manchester Community College</div>
+                                            </div>
+                                            <div class="caption card-footer text-center">
+                                                <ul class="list-inline">
+                                                    <li></li>
+                                                    <li><a onclick='customModel("diane")' data-toggle="modal"
+                                                            data-target="#exampleModalLong">&nbsp;Read More</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="thumbnail">
+                                            <div class="caption text-center">
+                                                <div class="position-relative">
+                                                    <img src="https://ctsciencecenter.org/wp-content/uploads/2022/07/Athenas-Warriors-CTSC_WinnerHeadshots3-1.jpg"
+                                                        style="width:150px;height:150px;" />
+                                                </div>
+                                                <h4 style="font-weight:bold !important;font-size:14px !important;color: black !important;"
+                                                    id="thumbnail-label">
+                                                    NON-PROFIT ORGANIZATION HONOREE</h4>
+                                                <p>Athena’s Warriors</p>
+                                                <div class="thumbnail-description smaller">4-H FIRST Robotics<br>Team
+                                                    #3182</div>
+                                            </div>
+                                            <div class="caption card-footer text-center">
+                                                <ul class="list-inline">
+                                                    <li></li>
+                                                    <li><a onclick='customModel("athens")' data-toggle="modal"
+                                                            data-target="#exampleModalLong">&nbsp;Read More</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">&nbsp;</div>
+                            <div class="col-md-8">
+                                <div class="row space-16">&nbsp;</div>
+                                <div class="row">
+                                    <div class="col-md-2">&nbsp;</div>
+                                    <div class="col-sm-4">
+                                        <div class="thumbnail">
+                                            <div class="caption text-center">
+                                                <div class="position-relative">
+                                                    <img src="https://ctsciencecenter.org/wp-content/uploads/2022/07/David-Warriors-CTSC_WinnerHeadshots3-2.jpg"
+                                                        style="width:150px;height:150px;" />
+                                                </div>
+                                                <h4 style="font-weight:bold !important;font-size:14px !important;color: black !important;"
+                                                    id="thumbnail-label">
+                                                    INNOVATOR<br>HONOREE</h4>
+                                                <p>David Grew MD MPH</p>
+                                                <div class="thumbnail-description smaller">Founder<br>PRIMR</div>
+                                            </div>
+                                            <div class="caption card-footer text-center">
+                                                <ul class="list-inline">
+                                                    <li></li>
+                                                    <li class="mtlong"><a onclick='customModel("david")'
+                                                            data-toggle="modal"
+                                                            data-target="#exampleModalLong">&nbsp;Read More</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="thumbnail">
+                                            <div class="caption text-center">
+                                                <div class="position-relative">
+                                                    <img src="https://ctsciencecenter.org/wp-content/uploads/2022/07/Francisca-CTSC_WinnerHeadshots5-1.jpg"
+                                                        style="width:150px;height:150px;" />
+                                                </div>
+                                                <h4 style="font-weight:bold !important;font-size:14px !important;color: black !important;"
+                                                    id="thumbnail-label">
+                                                    YOUTH<br>HONOREE</h4>
+                                                <p>Francisca I Barria-Lopez</p>
+                                                <div class="thumbnail-description smaller">Connecticut Science
+                                                    Center<br>Teen Innovation Program<br>Hartford Resident</div>
+                                            </div>
+                                            <div class="caption card-footer text-center">
+                                                <ul class="list-inline">
+                                                    <li></li>
+                                                    <li class="mtshort"><a onclick='customModel("francisca")'
+                                                            data-toggle="modal"
+                                                            data-target="#exampleModalLong">&nbsp;Read More</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">&nbsp;</div>
+                                </div>
+                                <div class="col-md-2">&nbsp;</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="border-top: 1px solid #dee2e6!important;" class="row">
+                        <div class="card" style="text-align:center;">
+                            <div class="card-header" id="headingTwelve">
+                                <h2 class="mb-0">
+                                    <button type="button" style="text-align:center;"
+                                        class="btn btn-link collapsed btnColor" data-toggle="collapse"
+                                        data-target="#important"><i class="fa fa-plus"></i> VIEW PAST AWARD
+                                        WINNERS
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="important" class="collapse" aria-labelledby="headingTwelve"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div class="container">
+                                        <div class="col-sm-2"></div>
+                                        <div class="col-sm-8">
+                                            <table class="table table-responsive table-striped">
+                                                <thead style="background-color: #E5F8FF !important;"
+                                                    class="text-center">
+                                                    <tr>
+                                                        <th class="text-center">Year</th>
+                                                        <th class="text-center">Name</th>
+                                                        <th class="text-center">Award</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>2021</td>
+                                                        <td>UCONN Natural Academy
+                                                            Conservation Academy</td>
+                                                        <td>STEM Achievement Award Organization
+                                                            Honoree</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2020 </td>
+                                                        <td>Carmen R. Cid<br>Ph.D.</td>
+                                                        <td>STEM Achievement Award Individual Honoree</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2020 </td>
+                                                        <td>The Hartford and the Cognizant U.S. Foundation</td>
+                                                        <td>STEM Achievement Award Organization Honoree</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2019</td>
+                                                        <td>John D. Mertens<br>Ph.D. Professor of Engineering, Trinity
+                                                            College</td>
+                                                        <td>STEM Achievement Award Individual Honoree</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2019</td>
+                                                        <td>Aetna Health Professions Partnership Initiative<br>UConn
+                                                            Health</td>
+                                                        <td>STEM Achievement Award Organization Honoree</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2018</td>
+                                                        <td>Sharon Gusky<br>Professor, Biology, Northwestern Connecticut
+                                                            Community College</td>
+                                                        <td>STEM Achievement Award Individual Honoree</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2018</td>
+                                                        <td>Girl Scouts of Connecticut</td>
+                                                        <td>STEM Achievement Award Organization Honoree</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2017</td>
+                                                        <td>Carolyn Begnoche<br>UTC Aerospace Systems</td>
+                                                        <td>STEM Achievement Award Individual Honoree</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2017</td>
+                                                        <td>CBIA Education & Workforce Partnership</td>
+                                                        <td>STEM Achievement Award Organization Honoree</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2016</td>
+                                                        <td>Walter Nakonechny</td>
+                                                        <td>STEM Achievement Award Individual Honoree</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2016</td>
+                                                        <td>Connecticut Invention Convention</td>
+                                                        <td>STEM Achievement Award Organization Honoree</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2015</td>
+                                                        <td>Mark Dixon</td>
+                                                        <td>STEM Achievement Award Individual Honoree</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2015</td>
+                                                        <td>Connecticut Pre-Engineering Program</td>
+                                                        <td>STEM Achievement Award Organization Honoree</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2013</td>
+                                                        <td>Jared Cohen</td>
+                                                        <td>STEM Achievement Award Individual Honoree</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2013</td>
+                                                        <td>The Travelers Companies, Inc.</td>
+                                                        <td>STEM Achievement Award Organization Honoree</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2012</td>
+                                                        <td>Governor Dannel P. Malloy</td>
+                                                        <td>STEM Achievement Award Individual Honoree</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2012</td>
+                                                        <td>United Technologies Corporation</td>
+                                                        <td>STEM Achievement Award Organization Honoree</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-sm-2"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="panel panel-default foundation virtual" id="eon">
+                <div class="panel-heading cpanel1">
+                    <div class="row ">
+                        <div class="col-xs-8">
+                            <h4 style="margin:0;padding-top:3px; color:white; text-transform:uppercase;">PETIT FAMILY
+                                FOUNDATION WOMEN IN SCIENCE LEADERSHIP AWARDS</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <img style="max-width:150px;max-height:200px;width:100%;"
+                                class="img-responsive img-thumbnail"
+                                src="https://ctsciencecenter.org/wp-content/uploads/2021/02/Women-in-Science-Thumbnail.jpg"
+                                alt="logo, company name" data-uw-rm-ima="ai">
+                        </div>
+                        <div class="col-sm-10">
+                            <div>
+
+                                <p>These annual awards recognize a woman and young girl working in STEM who are leaders
+                                    in
+                                    their fields, and who makes a significant effort to support other women and
+                                    encourage
+                                    girls' interests in STEM. The honoree is selected by the Connecticut Science
+                                    Center's
+                                    Women in Science steering committee
+                                </p>
+                                <p><b>Awards will be presented at the Connecticut Science Center Gala: Back to the
+                                        Future on
+                                        Saturday, October 1, 2022 at the Connecticut Convention Center.</b></p>
+                                <p><b>The STEM Achievement Awards are presented by Stanley Black & Decker.</b></p>
+                                <p><b>Click <a href="https://ctsciencecenter.org/programs/wis/" data-uw-rm-brl="false"
+                                            aria-label="Click"
+                                            uw-rm-vague-link-id="https://ctsciencecenter.org/support/annual-gala/$here"
+                                            data-uw-rm-vglnk=""><b>here</b></a> to learn more about the Connecticut
+                                        Science
+                                        Center Women in Science programs</b></p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-2">&nbsp;</div>
+                            <div class="col-md-8">
+                                <div class="row space-16">&nbsp;</div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="thumbnail">
+                                            <div class="caption text-center">
+                                                <div class="position-relative">
+                                                    <img src="https://ctsciencecenter.org/wp-content/uploads/2022/08/Maria-CTSC_WinnerHeadshots5-2-1.jpg"
+                                                        style="width:150px;height:150px;" />
+                                                </div>
+                                                <h4 style="font-weight:bold !important;font-size:14px !important;color: black !important;"
+                                                    id="thumbnail-label">
+                                                    HONOREE</h4>
+                                                <p>Dr. Maria Chrysochoou</p>
+                                                <div class="thumbnail-description smaller">Professor and
+                                                    Head<br>Department of Civil and Environmental
+                                                    Engineering<br>University of Connecticut</div>
+                                            </div>
+                                            <div class="caption card-footer text-center">
+                                                <ul class="list-inline">
+                                                    <li></li>
+                                                    <li><a onclick='customModel("maria")' data-toggle="modal"
+                                                            data-target="#exampleModalLong">&nbsp;Read More</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="thumbnail">
+                                            <div class="caption text-center">
+                                                <div class="position-relative">
+                                                    <img src="https://ctsciencecenter.org/wp-content/uploads/2022/08/CTSC_WinnerHeadshots_EmergingLeader.jpg"
+                                                        style="width:150px;height:150px;" />
+                                                </div>
+                                                <h4 style="font-weight:bold !important;font-size:14px !important;color: black !important;"
+                                                    id="thumbnail-label">
+                                                    HIGHER FINALIST</h4>
+                                                <p>Sarah Koenig</p>
+                                                <div class="thumbnail-description smaller">Associate
+                                                    Director<br>Manufacturing Cost Modeling<br>Pratt & Whitney</div>
+                                            </div>
+                                            <div class="caption card-footer text-center">
+                                                <ul class="list-inline">
+                                                    <li></li>
+                                                    <li class="mtshort"><a onclick='customModel("sarah")'
+                                                            data-toggle="modal"
+                                                            data-target="#exampleModalLong">&nbsp;Read More</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="thumbnail">
+                                            <div class="caption text-center">
+                                                <div class="position-relative">
+                                                    <img src="https://ctsciencecenter.org/wp-content/uploads/2022/08/CTSC_WinnerHeadshots_PETIT.jpg"
+                                                        style="width:150px;height:150px;" />
+                                                </div>
+                                                <h4 style="font-weight:bold !important;font-size:14px !important;color: black !important;"
+                                                    id="thumbnail-label">
+                                                    FINALIST</h4>
+                                                <p>Danielle Weber</p>
+                                                <div class="thumbnail-description smaller">Secondary Science
+                                                    Teacher<br>Stamford Public Schools</div>
+                                            </div>
+                                            <div class="caption card-footer text-center">
+                                                <ul class="list-inline">
+                                                    <li></li>
+                                                    <li class="mtlong"><a onclick='customModel("danielle")'
+                                                            data-toggle="modal"
+                                                            data-target="#exampleModalLong">&nbsp;Read More</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">&nbsp;</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="border-top: 1px solid #dee2e6!important;" class="row">
+                        <div class="card" style="text-align:center;">
+                            <div class="card-header" id="wistwo">
+                                <h2 class="mb-0">
+                                    <button type="button" style="text-align:center;"
+                                        class="btn btn-link collapsed btnColor" data-toggle="collapse"
+                                        data-target="#test"><i class="fa fa-plus"></i> VIEW PAST AWARD WINNERS
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="test" class="collapse" aria-labelledby="wistwo" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div class="container">
+                                        <div class="col-sm-2"></div>
+                                        <div class="col-sm-8">
+                                            <table class="table table-responsive table-striped">
+                                                <thead style="background-color: #E5F8FF !important;"
+                                                    class="text-center">
+                                                    <tr>
+                                                        <th class="text-center">Year</th>
+                                                        <th class="text-center">Name</th>
+                                                        <th class="text-center">Award</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>2020</td>
+                                                        <td>Jacquelynn Garofano<br>Ph.D</td>
+                                                        <td>Petit Family Foundation Women in Science Leadership Award
+                                                            Honoree</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2019</td>
+                                                        <td>Kristen Govoni<br>Ph.D. Associate Professor of Animal
+                                                            Sciences, UConn</td>
+                                                        <td>Petit Family Foundation Women in Science Leadership Award
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2018</td>
+                                                        <td>Dr. Michele Dischino<br>Professor, Technology & Engineering
+                                                            Education, Central Connecticut State University,</td>
+                                                        <td>Petit Family Foundation Women in Science Leadership Award
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2017 </td>
+                                                        <td>Claudine Phaire of Sikorsky<br>Lockheed Martin Company</td>
+                                                        <td>Petit Family Foundation Women in Science Leadership Award
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2016</td>
+                                                        <td>Jonna Gerken</td>
+                                                        <td>Petit Family Foundation Women in Science Leadership Award
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2015</td>
+                                                        <td>Dr. Linda Barryn</td>
+                                                        <td>Petit Family Foundation Women in Science Leadership Award
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2014</td>
+                                                        <td>Dr. Kristine Larsen</td>
+                                                        <td>Petit Family Foundation Women in Science Leadership Award
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2013</td>
+                                                        <td>Kimberly McLean</td>
+                                                        <td>Petit Family Foundation Women in Science Leadership Award
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-sm-2"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
+
+<!-- Modal for  garofano -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width:1100px;">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h1 class="modal-title" style="text-align:center; font-weight:bolder;">2022 Annual Awards Nomination
+                    Form</h1>
+
+            </div>
+            <div class="modal-body">
+                <?php echo do_shortcode('[formidable id="8"]'); ?>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 style="font-weight:bold !important" class="modal-title" id="exampleModalLongTitle"></h5>
+            </div>
+            <div id='desc' class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const data = {
+        "steve": {
+            "name": "Steven T. Arnold",
+            "desc": `<p>In many ways, <b>Steve Arnold</b> is the consummate early years teacher – patient and
+                    positive – attentive to the building blocks of learning. He inspires his students to
+                    be curious, explore the natural world around them, and embrace the best of what’s
+                    new. In other ways, Steve breaks the mold. He bikes barefoot to school each morning,
+                    constructs worlds of engineering and imagination in and outside the classroom, and
+                    he crafts his own way of delivering our core curriculum, always through the eyes of
+                    his 5 and 6-year-old students. Generations of Renbrook studentsowe their love of
+                    learning and foundational academic skillset to his extraordinary work.<br><br>
+                    It was his response to the challenges of the pandemic that brought out the best in
+                    Steve’s approach. One might say that he spent 35 years preparing for this moment.
+                    The Renbrook trails that he created and tended to over the years became his
+                    classroom; his creative and flexible mindset allowed him to pivot around the needs
+                    of his students; and hisunrivaled work ethic allowed him to deliver on the
+                    considerable extra planning and communication required. Steve excelled precisely
+                    when his students needed him most.<br><br>
+                    Renbrook’s deeply engrained commitment to outdoor teaching and learning is due in no
+                    small part to Steve’s efforts. Ed Donahue, Steve’s longtime colleague in the ELC,
+                    reflects, “During his 35 years at Renbrook, Steve has literally blazed trails to
+                    help foster a deeper appreciation and enjoyment of the natural world here at
+                    Renbrook for students, colleagues, and parents.” Steve’s legacy will live on in our
+                    lasting dedication to bringing outdoor learning to life.
+                </p>`
+        },
+        "diane": {
+            "name": "Diane C. Hillyer",
+            "desc": `<p>Diane Hillyer is a Professor of Mathematics at Manchester Community College. She
+                                    brings a lively and energetic presence to her classroom and in her thirty-five years
+                                    as a mathematics educator, she strives to be a positive role model for her female
+                                    students. She holds a master’s degree in mathematics and a bachelor’s degree in
+                                    accounting. Her STEM mission driven efforts include having her students gain an
+                                    appreciation for the beauty and rigor of mathematics. Helping students realize that
+                                    they are capable of grasping and applying difficult, abstract topics, growing in
+                                    confidence in their academic abilities, and successfully attaining academic and
+                                    personal goals, is the most rewarding part of her career. Her mantra is, find your
+                                    passion and do what you love. She is the recipient of the Excellence in Teaching
+                                    Award granted by the Alumni Association at Manchester Community College. Diane
+                                    resides in Old Saybrook with her husband Clay, is the mother of two adult sons, and
+                                    is a nana for her two beloved grandchildren, Tre and Kiki.</p>`
+
+        },
+        "athens": {
+            "name": "Athena’s Warriors",
+            "desc": `<p>Athena’s Warriors 4-H FIRST Robotics Team #3182 is a non-profit community FIRST
+                                    Robotics Competition team of high-school students from the Greater Hartford area of
+                                    Connecticut, working out of MakerspaceCT in downtown Hartford.<br><br>
+                                    FIRST has a mission to inspire young people to be science and technology leaders and
+                                    innovators. Since 2010, as one of the only community-based teams in all of
+                                    Connecticut, Athena’s Warriors has served as an outlet for students near Hartford to
+                                    explore STEM education, projects and careers, while taking part in local robotics
+                                    competitions, developing a business plan and participating in community
+                                    outreach.<br><br>
+                                    2022 was Athena's Warriors most successful year in all of our team history. We won
+                                    the New England FIRST Hartford District Event, resulting in our first official "blue
+                                    banner," as well as the event's Entrepreneurship Award. This qualified our team for
+                                    both the New England District Championship in West Springfield, MA, and the FIRST
+                                    World Championship in Houston, TX, where we competed the highest levels for the
+                                    first time, demonstrated outstanding defense on the field and were recognized for
+                                    our team brand identity.<br><br>
+                                    Our team of aspiring high-school electrical and mechanical engineers, programmers,
+                                    project managers, business and marketing leaders, and more are exposed to meaningful
+                                    real-life experiences, life-long friendships and opportunities to give back to the
+                                    community.</p>`
+
+        },
+        "david": {
+            "name": "David Grew MD MPH",
+            "desc": `<p>Doctor Grew is a radiation oncologist and the founder of PRIMR. PRIMR produces
+                                    simple, engaging digital patient education content and analytics at scale. PRIMR
+                                    provides patient education videos for international clinical trials and also
+                                    partners with St Francis Hospital to make PRIMR content available to patients in our
+                                    community. Doctor Grew’s mission is to reduce patient suffering with better
+                                    education. He is a graduate of Northwest Catholic, Fordham University (BS), Tulane
+                                    School of Medicine (MD, MPH) and completed residency at NYU School of Medicine. He
+                                    lives in West Hartford with his wife and 4 daughters.</p>`
+
+        },
+        "francisca": {
+            "name": "Francisca I Barria-Lopez",
+            "desc": `<p>Hello! My name is Francisca Barria-Lopez! I just graduated high school at the Academy
+                                    of Aerospace and Engineering. I am currently a freshman in college at the University
+                                    of Rochester studying international relations and health policy. In high school, I
+                                    had a passion for debate and model united nations as well as a multitude of
+                                    extracurricular activities. This includes the student council, national honors
+                                    society and work here at the science center! I’ve worked on a multitude of projects
+                                    in school as well such as a website for first generation high school students to
+                                    guide them on the college process.<br><br>
+                                    Currently, I have discovered my passion for science and advocating to begin working
+                                    towards my degree. I’ve been participating in the Teen Innovation program at the
+                                    Connecticut Science Center for four years now. This year, my group mates and I have
+                                    decided to work on bacteria communication to show our love for biology and life
+                                    sciences.<br><br>
+                                    I discovered this passion of science due to the curiosity I had about how things
+                                    worked and why they work a certain way. Seeing the different wonders of the world
+                                    and figuring out how I can incorporate this in my day to day life also allowed me to
+                                    realize how much I would love for everyone to experience this. </p>`
+
+        },
+        "maria": {
+            "name": "Dr. Maria Chrysochoou",
+            "desc": '<p>Dr. Maria Chrysochoou is a Professor and Head of the Department of Civil and Environmental Engineering at the University of Connecticut. Dr. Chrysochoou’s general research area is environmental geochemistry, with a focus on site remediation, characterization and reuse of industrial waste and construction materials. Dr. Chrysochoou serves as the Director of the EPA Region 1 Technical Assistance for Brownfields Program, serving New England communities to promote brownfield redevelopment and environmental justice. She is also the Principal Investigator of the project “Beyond Accommodation: Leveraging Neurodiversity for Engineering Innovation”, sponsored by the NSF’s Revolutionizing Engineering Department program, empowering neurodiverse students to purse an engineering education and career. As the first female department head in the School of Engineering at UCONN, Dr. Chrysochoou is also dedicated to empowering young women and underrepresented minorities to find their voice and pursue their dreams.</p>'
+
+        },
+        "sarah": {
+            "name": "Sarah Koenig",
+            "desc": `<p>Sarah is the Associate Director of Manufacturing Cost Modeling at Pratt and Whitney,
+                                    a division of Raytheon Technologies. In this role, she manages a team of
+                                    manufacturing engineers and project managers and oversees the creation of
+                                    manufacturing cost models to support partnership and supplier pricing
+                                    negotiations.<br><br>
+                                    She began her career in the Manufacturing Engineering Development Program at Pratt
+                                    and Whitney, completing roles in manufacturing and quality. She then became a
+                                    Quality Engineer Team Leader in supplier quality. Sarah next joined the Operations
+                                    Leadership Program, placing out at Collins Aerospace upon completion. At Collins,
+                                    she managed transitions for castings and machined parts into Southeast Asia. She was
+                                    later promoted to Castings and Machining Lead, gaining responsibility for the team
+                                    managing China and India.<br><br>
+                                    Sarah subsequently returned to Pratt and Whitney as an Industrial Manager,
+                                    responsible for mitigating Operations-related risks. Sarah was then promoted to
+                                    Deputy Production Chief. Here she spearheaded the industrialization of key
+                                    configuration changes for the Next Generation Product Family, simultaneously leading
+                                    several cross-functional teams comprised of engineering, manufacturing, supply
+                                    chain, and quality.<br><br>
+                                    Sarah is a Life Member of the Society of Women Engineers (SWE) and has held
+                                    leadership roles at the section, region, and Society level. She also serves on the
+                                    Board of Directors for Camp Mujigae, a Korean heritage camp.<br><br>
+                                    She graduated from the International Engineering Program at the University of Rhode
+                                    Island, earning a B.S. in Industrial Engineering and a B.A. in French, in addition
+                                    to an MBA from Carnegie Mellon University.</p>`
+
+        },
+        "danielle": {
+            "name": "Danielle Weber",
+            "desc": `<p>Danielle Weber has been teaching high school science for 16 years and is currently
+                                    working at the Academy of Information Technology and Engineering in Stamford, CT.
+                                    She earned a BS from Elon University in Biology and Secondary Science Education, an
+                                    M. Ed. from SUNY Buffalo in Science and the Public, and an M. Ed. from Sacred Heart
+                                    University in Educational Leadership.<br><br>
+
+                                    At AITE, she is the faculty advisor for the Science National Honor Society, Red
+                                    Cross Club, and RSPACEE, an afterschool program in which high schoolers share their
+                                    love of science with elementary and middle school students. Danielle is a TEAM
+                                    Mentor and Reflection Paper Reviewer; as such, she has had the joy of working with
+                                    countless new and aspiring science teachers. She is AITE’s science department head
+                                    representative and the lead teacher for science curriculum for Stamford Public
+                                    Schools.<br><br>
+
+                                    Danielle has been working with Project Lead The Way for 11 years and was named the
+                                    2021-2022 National Biomed Teacher of the Year. She is a Master Teacher for both
+                                    Human Body Systems and Medical Interventions. In this role, Danielle is a mentor and
+                                    instructor for teachers new to PLTW courses through in-person and online
+                                    professional development. Danielle also shares her love of mentoring through her
+                                    work as a coach and presenter for Mass STEM Hub, an organization focused on
+                                    enhancing STEM opportunities for students, teachers, and schools throughout
+                                    Massachusetts.<br><br>
+
+                                    Outside of the classroom, Danielle enjoys spending time with her husband, Jeff, and
+                                    their two boys, Joshua and Donovan.</p>`
+
+        }
+    }
+    function customModel(id) {
+        document.getElementById("exampleModalLongTitle").innerHTML = data[id]['name']
+        document.getElementById("desc").innerHTML = data[id]['desc']
+    }
+</script>
+
+
+
+
+
+
+<?php get_footer(); ?>

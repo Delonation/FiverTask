@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Assets/Stylesheet/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" /> -->
+    <title>TicTacToe</title>
+</head>
+
+<body>
+
+    <!-- NAV:START -->
+    <nav>
+        <ul>
+            <li><a href="../index.html"><img src="../Assets/Media/log.png" height="55px" width="110px"></a></li>
+            <li><a href="../index.html">
+                    <p>Home</p>
+                </a></li>
+            <li><a href="./aboutus.html">
+                    <p>About</p>
+                </a></li>
+            <li><a href="./contactus.html">
+                    <p>Contact</p>
+                </a></li>
+            <li><a class="active" href="./tictac.html">
+                    <p>Play Our Game!</p>
+                </a></li>
+        </ul>
+    </nav>
+    <!-- NAV:END -->
+
+    <!-- START:SECTION -->
+    <section style="margin-bottom: 0 !important;">
+
+        <div class="about-section">
+            <h1>Tic Tac Toe - Game</h1>
+        </div>
+
+    </section>
+    <!-- END:SECTION -->
+
+    <!-- START:SECTION -->
+    <section style="margin: 0 auto !important;" class="display">
+        <h1 style="text-align:center" class="heading">Player <span class="display-player playerX">⛹</span>'s turn</h1>
+    </section>
+    <section style="margin: 0 auto !important;" class="board">
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <br>
+        <button id="reset">Reset</button>
+    </section>
+    <section style="margin: 0 auto !important;" class="display announcer hide"></section>
+    <!-- <section class="controls">
+        <button id="reset">Reset</button>
+    </section> -->
+
+    <!-- END:SECTION -->
+
+    <!-- START:FOOTER -->
+    <div class="footer">
+        <p>©2022 Christopher SUNG - All Rights Reserved.</p>
+    </div>
+    <!-- END: FOOTER -->
+
+    <script src="../Assets/Scripts/script.js"></script>
+</body>
+
+</html>

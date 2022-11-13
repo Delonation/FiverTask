@@ -1,0 +1,167 @@
+<script>
+    const waitListSignUp = () => {
+        let name = document.getElementById("input_name");
+        let pwd = document.getElementById("input_pwd");
+        let email = document.getElementById("input_email");
+        let cPwd = document.getElementById("input_cPwd");
+
+        if (
+            name.value != "" &&
+            pwd.value != "" &&
+            email.value != "" &&
+            cPwd.value != ""
+        ) {
+            let flag_pass = false;
+            if (!validateEmail(email.value)) {
+                showFromError("emailError");
+                flag_pass = true;
+            }
+            let symbol = /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/;
+            if (
+                pwd.value.length < 6 ||
+                /[0-9]/.test(pwd.value) == false ||
+                symbol.test(pwd.value) == false
+            ) {
+                flag_pass = true;
+                console.log("SHOW ERROR");
+                showFromError("pwdError");
+            }
+
+            if (pwd.value != cPwd.value) {
+                flag_pass = true;
+                showFromError("cPwdError");
+            }
+
+            if (flag_pass != true) {
+                if (joinListAccountCreation()) {
+                    document.getElementById("username").removeAttribute("readonly");
+                    document.getElementById("username").style.backgroundColor = "#B9EEC8";
+                    document.getElementById("username").style.color = "#2DC557";
+                    let temp = "get.me/" + document.getElementById("username").value;
+                    console.log(temp);
+                    document.getElementsByClassName("getme_text")[0].style.visibility =
+                        "hidden";
+                    document.getElementsByClassName(
+                        "getme_text",
+                    )[0].parentElement.style.backgroundColor = "#B9EEC8";
+                    showAlert(
+                        "success",
+                        `Awesome! You reserved your username! Please check your inbox and confirm your email.`,
+                        "#B9EEC8",
+                        "#2DC557",
+                    );
+                    btnJoin.classList.add("hide");
+                    document.getElementById("waitListForm").remove();
+                    document.getElementById("email-form").innerHTML += `
+							<div style="margin-top:35px;margin-left:20px;">
+								<a id="btn_anotherUsername" href="#" onClick="window.location.reload();" class="button w-button">Check another username</a>
+								</div>
+								`;
+                    // LAST SCREEN
+                    document.getElementById("username").value = temp;
+                }
+            }
+        } else {
+            showAlert("error", "Fields can not be Empty", "FFBAA5");
+        }
+    };
+
+    const renderWaitList = (ele, usr) => {
+        console.log("USERNAME IN PART B:", usr);
+        document.getElementById("username").value = usr;
+        document.getElementById("username").setAttribute("readonly", "true");
+        document.getElementById("btnCheck").classList.add("hide");
+        btnJoin.classList.add("hide");
+        let newFirstElement = `
+		<table id="waitListForm" >
+			<tr>
+				<td>
+					<div id="nameInput" class="user_label ">
+						<input
+					        oninput="disableIcon()"
+							type="text"
+							class="text-field_start-lower w-input"
+							maxlength="256"
+							name="name-3"
+							data-name="Name 3"
+							placeholder="Name"
+							id="input_name"
+						/>
+					</div>
+							 <div id="nameError" style="color: #FFBAA5;" class="validateError hidden" >Please provide a valid name.</div>
+				</td>
+				<td>
+					<div id="emailInput" class="user_label ">
+						<input
+						    oninput="disableIcon('emailError')"
+							type="email"
+							class="text-field_start-lower w-input"
+							maxlength="256"
+							name="email"
+							data-name="email"
+							placeholder="Email"
+							id="input_email"
+						/>
+					</div>
+							 <div id="emailError" style="color: #FFBAA5;" class="validateError hidden" >Required valid email</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="passInput" class="user_label ">
+						<input
+							  oninput="disableFormError('pwdError')"
+							type="password"
+							class="text-field_start-lower w-input"
+							maxlength="256"
+							name="password"
+							data-name="password"
+							placeholder="Password"
+							id="input_pwd"
+						/>
+					</div>
+	
+				</td>
+				<td>
+					<div id="cPwdInput" class="user_label ">
+						<input
+							type="password"
+									 oninput="disableFormError('cPwdError')"
+							class="text-field_start-lower w-input"
+							maxlength="256"
+							name="password"
+							data-name="password"
+							placeholder="Confirm password"
+							id="input_cPwd"
+						/>
+					</div>
+							 <div id="cPwdError" style="color: #FFBAA5;" class="validateError hidden" >passwords do not match.</div>
+				</td>
+						 <tr>
+							 <td>
+								 <div id="pwdError" style="color: #FFBAA5"; class="validateError hidden" >
+							   <span>The Password must contain a character, digit and a symbol.</span>
+									 <span id="sixChar" class="hidden"><i id="validateChar" class="fa-regular"></i> six characters</span><br>
+									 <span id="oneNumber" class="hidden"><i id="validateoneNumber"  class="fa-regular"></i> atleast one number</span><br>
+									 <span id="oneSymbol" class="hidden"><i id="validateoneSymbol"  class="fa-regular"></i> atleast one symbol</span>
+								 </div>
+							 </td>
+							 <td></td>
+			</tr>
+			<tr>
+				<td style="text-align:right">
+						 <div style="margin-top:20px;margin-left:20px;">
+							 <a id="btnBack" onclick="back()" href="#" class="button w-button">Back</a>
+						 </div>
+					 </td>
+					 <td style="text-align:left">
+						 <div style="margin-top:20px;margin-left:20px;">
+							 <a id="btnsignUpWaitList" style="background-color: white;color: black" onClick="waitListSignUp()" href="#" class="button w-button">Join waitlist</a>
+						 </div>
+					 </td>
+			</tr>
+		</table>`;
+
+        ele.innerHTML += newFirstElement;
+    };
+</script>

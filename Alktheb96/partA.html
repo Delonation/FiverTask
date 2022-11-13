@@ -1,0 +1,307 @@
+<script>
+    const getData = async() => {
+        let updatedResp = {};
+        const resp = await fetch(
+            "https://getme-storage-dev1.s3.eu-central-1.amazonaws.com/slugs.json",
+        );
+        const data_resp = await resp.json();
+        // const data_resp = AllData; // there will be API response instead of AllData variable
+        if (data_resp.length) {
+            data_resp.forEach((_res) => {
+                if (updatedResp ? .[_res.category] ? .name) {
+                    const {
+                        name,
+                        resv_name
+                    } = updatedResp[_res.category].products;
+                    updatedResp[_res.category].products.name = [
+                        ...new Set([...name, _res.option1, _res.option2]),
+                    ];
+                    updatedResp[_res.category].products.resv_name = [
+                        ...resv_name,
+                        _res.reserved,
+                    ];
+                    return updatedResp;
+                }
+                return (updatedResp[_res.category] = {
+                    name: _res.category,
+                    products: {
+                        name: [_res.option1, _res.option2],
+                        resv_name: [_res.reserved],
+                    },
+                });
+            });
+        }
+        return updatedResp;
+    };
+
+    let selectedCat;
+    let selectBrandDomain;
+    let username;
+    let btnCheck = document.getElementById("btnCheck");
+    let btnJoin = document.getElementById("btnJoinList");
+    let addIcon = document.getElementById("usernameField");
+    let span = document.createElement("span");
+    let uName = document.getElementById("username");
+    let flag_brands = false;
+    span.setAttribute("id", "errorIcon");
+    span.setAttribute("class", "errorIcon");
+    addIcon.appendChild(span);
+    uName.setAttribute("oninput", "disableIcon(event)");
+    btnJoin.setAttribute("onclick", "waitList()");
+    btnJoin.style.color = "#458B59";
+    (btnJoin.style.fontFamily = "Antarctica Extended"), "sans-serif";
+    btnJoin.style.backgroundColor = "white";
+
+    //must be in lowercase
+
+    const showAlert = (type, msg, color, inptColor) => {
+        let ele = document.getElementById("message");
+        let err = document.getElementById("errorIcon");
+        ele.classList.remove("hide");
+        ele.classList.add("err");
+        ele.innerHTML = msg;
+        ele.style.color = color;
+        if (inptColor != undefined) {
+            uName.style.color = inptColor;
+        } else {
+            uName.style.color = color;
+        }
+        if (type == "error") {
+            err.innerHTML = `<i style="color:#FFBAA5" class="fa-regular fa-circle-xmark"></i>`;
+        } else {
+            err.innerHTML = `<i style="color:#2DC557" class="fa-regular fa-circle-check"></i>`;
+        }
+    };
+
+    const disableIcon = (e) => {
+        if (e != undefined) {
+            if (e.target != undefined) {
+                username = e.target.value;
+            }
+        }
+        document.getElementById("username").style.color = "black";
+        document.getElementById("errorIcon").innerHTML = "";
+        document.getElementById("message").innerHTML = "";
+        if (!btnJoinList.classList.contains("hide")) {
+            btnJoinList.classList.add("hide");
+        }
+    };
+
+    const back = () => {
+        username = "";
+        disableIcon();
+        // document.getElementById("username").value = username;
+        document.getElementById("username").style.color = "black";
+        if (document.getElementById("username").hasAttribute("readonly")) {
+            document.getElementById("username").removeAttribute("readonly");
+        }
+        document.getElementById("btnCheck").classList.remove("hide");
+        btnJoin.classList.add("hide");
+        document.getElementById("waitListForm").remove();
+    };
+
+    const showFromError = (id, errID, iconID) => {
+        document.getElementById(id).previousElementSibling.classList.remove("mb-2");
+        document.getElementById(id).classList.remove("hidden");
+    };
+
+    const disableFormError = (id) => {
+        document.getElementById(id).previousElementSibling.classList.add("mb-2");
+        document.getElementById(id).classList.add("hidden");
+    };
+
+    const waitList = () => {
+        if (flag_brands) {
+            selectBrandDomain = document.getElementById("username").value;
+            console.log(`WAIT LIST: ${selectBrandDomain} : `, username);
+            showAlert(
+                "success",
+                `<i style="color#FFD935" class="fa-solid fa-triangle-exclamation" ></i> You need an <b>@${selectBrandDomain}.com</b> email adress to claim it now`,
+                "#FFBAA5",
+                "#2DC557",
+            );
+            flag_brands = false;
+        } else {
+            selectBrandDomain = undefined;
+        }
+        username = document.getElementById("username").value;
+        renderWaitList(document.getElementById("email-form"), username);
+        document.getElementById("username").value = username;
+    };
+
+    const joinListAccountCreation = () => {
+        return true;
+        // ACCOUNT CREATING DO HERE
+    };
+
+    const validateEmail = (email) => {
+        return email.match(
+            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        );
+    };
+
+    const syntaxValidation = (uName) => {
+        var regexp1 = new RegExp("^[0-9A-Za-z_.]+$");
+        if (!regexp1.test(uName)) {
+            return false;
+        } else {
+            return true;
+        }
+    };
+
+    const validateDatefromJSON = async(uName, data) => {
+        const {
+            name,
+            products
+        } = data;
+        const __uName = uName.toLowerCase();
+        selectedCat = name;
+
+        if (
+            name === "Brand" &&
+            products.name.filter((a) => a.toLowerCase() === __uName).length
+        ) {
+            flag_brands = true;
+            flag = true;
+            const _uName = products.resv_name.filter((a) =>
+                a.toLowerCase().replace(/\s/g, "").includes(__uName),
+            )[0];
+
+            let temp = _uName.includes(" ") ? _uName.split(" ")[0] : _uName;
+            console.log("TEMP:", temp);
+            showAlert(
+                "error",
+                `<i style="color:#FFD935 !important" class="fa-solid fa-triangle-exclamation"></i> This username has been reserved for the brand: <b>${_uName.toUpperCase()}</b>.<br>
+            You need an <b>@${temp}.com</b> email adress to claim it now,<br>
+            or you can <a style="color: rgb(255, 186, 165);" href="mailto:hello@get.me">contact us via email</a> so we can verify you.`,
+                "#FFBAA5",
+            );
+            btnJoinList.classList.remove("hide");
+            document.getElementById("errorIcon").innerHTML =
+                '<i style="color:#FFD935 !important" class="fa-solid fa-triangle-exclamation"></i>';
+            return true;
+        } else if (
+            name === "Creator" &&
+            products.name.filter((a) => a.toLowerCase() === __uName).length
+        ) {
+            const _uName = products.resv_name.filter((a) =>
+                a.toLowerCase().replace(/\s/g, "").includes(__uName.toLowerCase()),
+            )[0];
+            flag = false;
+            showAlert(
+                "error",
+                `<i style="color:#FFD935 !important" class="fa-solid fa-triangle-exclamation"></i> This username has been reserved for the creator: <span style="font-family: 'Antarctica Extended',sans-serif !important"><b>${_uName.toUpperCase()}</b></span>.
+            <br>Contact us on Instagram <span style="font-family: 'Antarctica Extended',sans-serif !important">@get.me_offical</span>,<br>
+            or <a style="color: rgb(255, 186, 165);" href="mailto:hello@get.me">send us an email</a> if this is you.`,
+                "#FFBAA5",
+            );
+            document.getElementById("errorIcon").innerHTML =
+                '<i style="color:yellow !important" class="fa-solid fa-triangle-exclamation"></i>';
+            return true;
+        } else if (
+            name === "Other" &&
+            products.name.filter((a) => a.toLowerCase() === __uName).length
+        ) {
+            const _uName = products.resv_name.filter((a) =>
+                a.toLowerCase().replace(/\s/g, "").includes(__uName.toLowerCase()),
+            )[0];
+            flag = false;
+            showAlert(
+                "error",
+                `This username has been reserved for: <b>${_uName.toUpperCase()}</b>.
+            <br>If this is you, call Andi.<br>If you do not  have his number, please try a different username.`,
+                "#FFBAA5",
+            );
+            document.getElementById("errorIcon").innerHTML =
+                '<i style="color:#FFD935 !important" class="fa-solid fa-triangle-exclamation"></i>';
+            return true;
+        }
+        return false;
+    };
+
+    const verifyCog = async(name) => {
+        const resp = await fetch(
+            `https://socialista-dev.pete.tech/slugs/availability?slug=${name}`, {
+                headers: {
+                    fingerprint: "3b7967fe12a0b509ad2b",
+                },
+            },
+        );
+        const data_resp = await resp.json();
+        return await data_resp["available"];
+    };
+    const cognitoCheck = async(uName) => {
+        // PLease Verify your AWS Cognito Check here
+        let temp = await verifyCog(uName);
+        console.log(await verifyCog(uName));
+        return await verifyCog(uName);
+    };
+
+    const doSyntaxCheck = async(btn, usrID) => {
+        if (btn == "btnCheck2") {
+            uName = document.getElementById(btn);
+        }
+        if (uName.value != "") {
+            // username = uName.value;
+            if (syntaxValidation(uName.value)) {
+                disableIcon();
+                if (cognitoCheck(uName.value)) {
+                    disableIcon();
+                    const resp = await getData();
+                    let foundVals = 0;
+                    for (const _data in resp) {
+                        let isSuccess = await validateDatefromJSON(
+                            document.getElementById(usrID).value.toLowerCase(),
+                            resp[_data],
+                        );
+                        if (isSuccess) {
+                            foundVals++;
+                        }
+                    }
+                    if (foundVals === 0) {
+                        showAlert(
+                            "success",
+                            "Awesome, this username is still available!",
+                            "#B9EEC8",
+                            "#2DC557",
+                        );
+
+                        btnJoinList.classList.remove("hide");
+                    }
+                } else {
+                    showAlert(
+                        "error",
+                        "Sorry, this username is already taken",
+                        "#FFBAA5",
+                    );
+                }
+            } else {
+                showAlert(
+                    "error",
+                    "Username can only contain letters, numbers, periods, and underscores",
+                    "#FFBAA5",
+                );
+            }
+        } else {
+            showAlert("error", "The username can not be empty.", "#FFBAA5");
+        }
+
+        if (btn == "btnCheck2") {
+            document.getElementById("username").value =
+                document.getElementById("name-2").value;
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+    };
+
+    btnCheck.addEventListener("click", () => {
+        doSyntaxCheck("btnCheck", "username");
+    });
+
+    document.getElementById("btnCheck2").addEventListener("click", () => {
+        console.log("2click");
+        doSyntaxCheck("btnCheck2", "name-2");
+    });
+</script>

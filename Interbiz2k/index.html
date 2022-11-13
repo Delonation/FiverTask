@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        td,
+        th {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width:50%;margin:0 auto">
+        <form method="POST" action="#">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Price($)</th>
+                        <th scope="col">Point</th>
+                        <th scope="col">Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Product A</td>
+                        <td id="pr_A">20</td>
+                        <td id="po_A">34</td>
+                        <td><input class="form-control" type="number" id="qty_A" oninput="calculate();" name="ProdA" size="6"></td>
+                    </tr>
+                    <tr>
+                        <td>Product B</td>
+                        <td id="pr_B">50</td>
+                        <td id="po_B">34</td>
+                        <td><input class="form-control" type="number" id="qty_B" oninput="calculate();" name="ProdB" size="6"></td>
+                    </tr>
+                    <tr>
+                        <td>Product C</td>
+                        <td id="pr_C">120</td>
+                        <td id="po_C">50</td>
+                        <td><input class="form-control" type="number" id="qty_C" oninput="calculate();" name="ProdC" size="6"></td>
+                    </tr>
+                    <tr>
+                        <td>Product D</td>
+                        <td id="pr_D">150</td>
+                        <td id="po_D">100</td>
+                        <td><input class="form-control" type="number" id="qty_D" oninput="calculate();" name="ProdD" size="6"></td>
+                    </tr>
+                    <tr>
+                        <td>Product E</td>
+                        <td id="pr_E">150</td>
+                        <td id="po_E">100</td>
+                        <td><input class="form-control" type="number" id="qty_E" oninput="calculate();" name="ProdE" size="6"></td>
+                    </tr>
+                    <tr>
+                        <td>Product F</td>
+                        <td id="pr_F">150</td>
+                        <td id="po_F">100</td>
+                        <td><input class="form-control" type="number" id="qty_F" oninput="calculate();" name="ProdF" size="6"></td>
+                    </tr>
+                    <tr>
+                        <td>Product G</td>
+                        <td id="pr_g">150</td>
+                        <td id="po_g">100</td>
+                        <td><input class="form-control" type="number" id="qty_H" oninput="calculate();" name="ProdG" size="6"></td>
+                    </tr>
+                    <tr>
+                        <td>Product H</td>
+                        <td id="pr_h">150</td>
+                        <td id="po_h">100</td>
+                        <td><input class="form-control" type="number" id="qty_H" oninput="calculate();" name="ProdH" size="6"></td>
+                    </tr>
+                    <tr>
+                        <td>Product I</td>
+                        <td id="pr_i">150</td>
+                        <td id="po_i">100</td>
+                        <td><input class="form-control" type="number" id="qty_I" oninput="calculate();" name="ProdI" size="6"></td>
+                    </tr>
+                    <tr>
+                        <td>Product J</td>
+                        <td id="pr_j">150</td>
+                        <td id="po_j">100</td>
+                        <td><input class="form-control" type="number" id="qty_J" oninput="calculate();" name="ProdJ" size="6"></td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: bisque;"><b>TOTAL:</b></td>
+                        <td style="background-color: bisque;"><b><span id="ttl_pr">NaN</span></b></td>
+                        <td style="background-color: bisque;"><b><span id="ttl_po">NaN</span></b></td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col">
+                    <input type="submit" style="width:100%" class="btn btn-success" value="Submit" name="B1">
+                </div>
+                <div class="col">
+                    <input type="reset" style="width:100%" onclick="reset()" class="btn btn-danger" value="Reset" name="B2">
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+	function reset(){
+		document.getElementById("qty_A").value = "0";
+            	document.getElementById("qty_B").value = "0";
+            	document.getElementById("qty_C").value = "0"; 
+            	document.getElementById("qty_D").value = "0";
+		calculate();
+	}
+        function calculate() {
+            // PRICE
+            let pr_A = parseInt(document.getElementById("pr_A").innerHTML);
+            let pr_B = parseInt(document.getElementById("pr_B").innerHTML);
+            let pr_C = parseInt(document.getElementById("pr_C").innerHTML);
+            let pr_D = parseInt(document.getElementById("pr_D").innerHTML);
+            let pr_E = parseInt(document.getElementById("pr_E").innerHTML);
+            let pr_F = parseInt(document.getElementById("pr_F").innerHTML);
+            let pr_G = parseInt(document.getElementById("pr_G").innerHTML);
+            let pr_H = parseInt(document.getElementById("pr_H").innerHTML);
+            let pr_I = parseInt(document.getElementById("pr_I").innerHTML);
+            let pr_J = parseInt(document.getElementById("pr_I").innerHTML);
+            // PinnerHTML
+            let po_A = parseInt(document.getElementById("po_A").innerHTML);
+            let po_B = parseInt(document.getElementById("po_B").innerHTML);
+            let po_C = parseInt(document.getElementById("po_C").innerHTML);
+            let po_D = parseInt(document.getElementById("po_D").innerHTML);
+            let po_E = parseInt(document.getElementById("po_E").innerHTML);
+            let po_F = parseInt(document.getElementById("po_F").innerHTML);
+            let po_G = parseInt(document.getElementById("po_G").innerHTML);
+            let po_H = parseInt(document.getElementById("po_H").innerHTML);
+            let po_I = parseInt(document.getElementById("po_I").innerHTML);
+            let po_J = parseInt(document.getElementById("po_J").innerHTML);
+            // QUANTITY
+            let qty_A = document.getElementById("qty_A").value;
+            let qty_B = document.getElementById("qty_B").value;
+            let qty_C = document.getElementById("qty_C").value;
+            let qty_D = document.getElementById("qty_D").value;
+            let qty_E = document.getElementById("qty_E").value;
+            let qty_F = document.getElementById("qty_G").value;
+            let qty_G = document.getElementById("qty_H").value;
+            let qty_H = document.getElementById("qty_I").value;
+            let qty_I = document.getElementById("qty_J").value;
+            // TOTAL
+            let ttl_pr = document.getElementById("ttl_pr");
+            let ttl_po = document.getElementById("ttl_po");
+
+            if (qty_A != "") {
+                if (qty_B != "") {
+                    if (qty_C != "") {
+                        ttl_pr.innerHTML = (qty_A * pr_A) + (qty_B * pr_B) + (qty_C * pr_C)
+                        ttl_po.innerHTML = (qty_A * po_A) + (qty_B * po_B) + (qty_C * po_C)
+                        if (qty_D != "") {
+                            ttl_pr.innerHTML = (qty_A * pr_A) + (qty_B * pr_B) + (qty_C * pr_C) + (qty_D * pr_D)
+                            ttl_po.innerHTML = (qty_A * po_A) + (qty_B * po_B) + (qty_C * po_C) + (qty_D * pr_D)
+                        } else {
+                            ttl_pr.innerHTML = (qty_A * pr_A) + (qty_B * pr_B) + (qty_C * pr_C)
+                            ttl_po.innerHTML = (qty_A * po_A) + (qty_B * po_B) + (qty_C * po_C)
+                        }
+                    } else {
+                        ttl_pr.innerHTML = (qty_A * pr_A) + (qty_B * pr_B)
+                        ttl_po.innerHTML = (qty_A * po_A) + (qty_B * po_B)
+                    }
+                } else {
+                    ttl_pr.innerHTML = (qty_A * pr_A)
+                    ttl_po.innerHTML = (qty_A * po_A)
+
+                }
+            } else if (qty_A == qty_C == qty_D == "" & qty_B != "") {
+                ttl_pr.innerHTML = (qty_B * pr_B)
+                ttl_po.innerHTML = (qty_B * po_B)
+            } else if (qty_A == qty_B == qty_D == "" & qty_C != "") {
+                ttl_pr.innerHTML = (qty_C * pr_C)
+                ttl_po.innerHTML = (qty_C * po_C)
+            } else if (qty_A == qty_B == qty_C == "" & qty_D != "") {
+                ttl_pr.innerHTML = (qty_D * pr_D)
+                ttl_po.innerHTML = (qty_D * po_D)
+            }
+
+        }
+    </script>
+</body>
+
+</html>

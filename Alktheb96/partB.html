@@ -1,0 +1,171 @@
+<script>
+    const checkPassword = (flag_pass) => {
+        let pwd = document.getElementById("input_pwd");
+        let symbol = /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/;
+
+        if (symbol.test(pwd.value)) {
+            document.getElementById("oneSymbol").style.color = "rgb(185, 238, 200)";
+            document
+                .getElementById("validateoneSymbol")
+                .classList.add("fa-circle-check");
+            document
+                .getElementById("validateoneSymbol")
+                .classList.remove("fa-circle-xmark");
+            flag_pass = true;
+        } else {
+            flag_pass = false;
+            document.getElementById("oneSymbol").style.color = "#FFBAA5";
+            document
+                .getElementById("validateoneSymbol")
+                .classList.remove("fa-circle-check");
+            document
+                .getElementById("validateoneSymbol")
+                .classList.add("fa-circle-xmark");
+        }
+        if (pwd.value.length >= 6) {
+            document.getElementById("sixChar").style.color = "rgb(185, 238, 200)";
+            document.getElementById("validateChar").classList.add("fa-circle-check");
+            document
+                .getElementById("validateChar")
+                .classList.remove("fa-circle-xmark");
+            flag_pass = true;
+        } else {
+            flag_pass = false;
+            document.getElementById("sixChar").style.color = "#FFBAA5";
+            document
+                .getElementById("validateChar")
+                .classList.remove("fa-circle-check");
+            document.getElementById("validateChar").classList.add("fa-circle-xmark");
+        }
+
+        if (/\d/g.test(pwd.value)) {
+            document.getElementById("oneNumber").style.color = "rgb(185, 238, 200)";
+            document
+                .getElementById("validateoneNumber")
+                .classList.add("fa-circle-check");
+            document
+                .getElementById("validateoneNumber")
+                .classList.remove("fa-circle-xmark");
+            flag_pass = true;
+        } else {
+            flag_pass = false;
+            document.getElementById("oneNumber").style.color = "#FFBAA5";
+            document
+                .getElementById("validateoneNumber")
+                .classList.remove("fa-circle-check");
+            document
+                .getElementById("validateoneNumber")
+                .classList.add("fa-circle-xmark");
+        }
+
+        if (/[a-z]/.test(pwd.value.toLowerCase())) {
+            document.getElementById("letters").style.color = "rgb(185, 238, 200)";
+            document
+                .getElementById("validateLetter")
+                .classList.add("fa-circle-check");
+            document
+                .getElementById("validateLetter")
+                .classList.remove("fa-circle-xmark");
+            flag_pass = true;
+        } else {
+            document.getElementById("letters").style.color = "#FFBAA5";
+            document
+                .getElementById("validateLetter")
+                .classList.remove("fa-circle-check");
+            document
+                .getElementById("validateLetter")
+                .classList.add("fa-circle-xmark");
+            flag_pass = false;
+        }
+        showFromError("pwdError");
+        return false;
+    };
+    const waitListSignUp = () => {
+        let username = document.getElementById("username");
+        let name = document.getElementById("input_name");
+        let pwd = document.getElementById("input_pwd");
+        let email = document.getElementById("input_email");
+        let cPwd = document.getElementById("input_cPwd");
+        let flag_pass = false;
+        let flag_email = false;
+
+        if (
+            name.value != "" &&
+            pwd.value != "" &&
+            email.value != "" &&
+            cPwd.value != ""
+        ) {
+            if (!validateEmail(email.value)) {
+                showFromError("emailError");
+                flag_email = true;
+            } else {
+                flag_email = false;
+            }
+
+            console.log(selectBrandDomain);
+
+            let symbol = /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/;
+
+            flag_pass = checkPassword(flag_pass);
+
+            if (pwd.value != cPwd.value) {
+                flag_pass = false;
+                showFromError("cPwdError");
+            } else {
+                disableIcon();
+                flag_pass = true;
+            }
+            console.log("EMAIL BEF:", flag_email);
+            if (selectBrandDomain != undefined) {
+                if (email.value.includes("@" + selectBrandDomain + ".com") == false) {
+                    console.log("DOESNT INCLUDES BRAND");
+                    showAlert(
+                        "success",
+                        `<i style="color#FFD935" class="fa-solid fa-triangle-exclamation" ></i> You need an <b>@${selectBrandDomain}.com</b> email address to claim it now`,
+                        "#FFBAA5",
+                        "#2DC557",
+                    );
+                    flag_email = false;
+                } else {
+                    flag_email = true;
+                    disableIcon();
+                }
+                // selectBrandDomain = undefined;
+            } else {
+                // selectBrandDomain = undefined;
+                flag_email = true;
+            }
+
+            console.log(flag_email, flag_pass);
+            if (flag_pass == true && flag_email == true) {
+                if (joinListAccountCreation()) {
+                    document.getElementById("username").removeAttribute("readonly");
+                    document.getElementById("username").style.backgroundColor = "#B9EEC8";
+                    document.getElementById("username").style.color = "#2DC557";
+                    let temp = "get.me/" + document.getElementById("username").value;
+                    document.getElementsByClassName("getme_text")[0].style.visibility =
+                        "hidden";
+                    document.getElementsByClassName(
+                        "getme_text",
+                    )[0].parentElement.style.backgroundColor = "#B9EEC8";
+                    showAlert(
+                        "success",
+                        `Awesome! You reserved your username! Please check your inbox and confirm your email.`,
+                        "#B9EEC8",
+                        "#2DC557",
+                    );
+                    btnJoin.classList.add("hide");
+                    document.getElementById("waitListForm").remove();
+                    document.getElementById("email-form").innerHTML += `
+            				<div style="margin-top:35px;margin-left:20px;">
+            					<a id="btn_anotherUsername" href="#" onClick="window.location.reload();" class="button w-button">Check another username</a>
+            					</div>
+            					`;
+                    document.getElementById("username").value = temp;
+                }
+            }
+        } else {
+            showAlert("error", "Fields can not be Empty", "FFBAA5");
+        }
+    };
+</script>

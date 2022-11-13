@@ -1,0 +1,31 @@
+[
+    [
+        {
+            "tokenId": 1,
+            "name": "Dragon Hodler #2",
+            "description": "Dragon Hodlers Club is a collection of 1000 3D NFTs that is part of Hodlers Club ecosystem",
+            "attributes": [
+                {
+                    "trait_type": "Background",
+                    "value": "Blue"
+                },
+                {
+                    "trait_type": "Body",
+                    "value": "GEN 1 Purple Dragon"
+                },
+                {
+                    "trait_type": "Head",
+                    "value": "Fallen Evangelion Helmet"
+                },
+                {
+                    "trait_type": "Left Hand",
+                    "value": "Golden Sword"
+                },
+                {
+                    "trait_type": "Right Hand",
+                    "value": "Dragon Scepter"
+                }
+            ]
+        }
+    ]
+]

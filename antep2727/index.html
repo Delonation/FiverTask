@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <style>
+        body {
+            background-color: rgba(255, 185, 0, 0.05);
+        }
+        
+        .para {
+            font-family: "Open Sans", Arial, Helvetica, Tahoma, "sans-sarif";
+            color: black;
+            font-weight: 100;
+            font-size: 14px;
+            top: 0 !important;
+            margin-bottom: 15px !important;
+        }
+        
+        .btnone {
+            border-top: none !important;
+        }
+        
+        ul>li>p {
+            font-size: 12px;
+            color: #aaa;
+        }
+        
+        h3 {
+            color: #aaa;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="top" class="container">
+        <div class="row">
+            <div class="card m-3 p-3">
+                <table class="table p-4">
+                    <thead>
+                        <th class="btnone"></th>
+                        <th class="btnone para">Product Name and Description</th>
+                        <th class="btnone para">Price (EUR)</th>
+                        <th class="btnone para">Selection</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="https://d7jiromw385hv.cloudfront.net/merchant_242973/image/product/FB27R7KA" alt="" class="product_thumb" width="180" />
+                            </td>
+                            <td>
+                                <div class="para">
+                                    <h3>The 5 best sales processes</h3>
+                                    <p>
+                                        Reach the maximum with your advertising by using these 5 sales processes.
+                                    </p>
+                                    <p>
+                                        No matter how good your promotion is, if your foundation isn't right, you're going to have a hard time. The post-ad process is at least as important as your ad itself.
+                                    </p>
+                                    <p>
+                                        Your streams of visitors must therefore convert, otherwise there will be no sales or no new customer acquisition.
+                                    </p>
+                                    <p>
+                                        We have summarized the 5 best sales processes for you with precise instructions and formulas for success.
+                                    </p>
+                                    <p>
+                                        These 5 sales processes are perfect for Facebook and Instagram advertising. With this content, we have scaled our marketing processes to €13.7 million in sales in recent years.
+                                    </p>
+                                    <p>
+                                        If you also want your sales processes to work with a high conversion rate, then secure this product now!
+                                    </p>
+                                </div>
+                            </td>
+                            <td><span class="para">€19.00</span></td>
+                            <td class="text-center">
+                                <input onChange="toggleCheckBox(event)" style="width: 20px; height: 20px" type="checkbox" name="sel" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-right">
+                                <div class="para">
+                                    <p>Subtotal :</p>
+                                    <p>VAT Germany (0%) :</p>
+                                    <p class="font-weight-bold">Total :</p>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="para">
+                                    <p>€<span id="subTotal">0.00</span></p>
+                                    <p>€<span id="VAT">0.00</span></p>
+                                    <p class="font-weight-bold">
+                                        €
+                                        <span id="Total">0.00</span>
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="accordion" id="accordionExample">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+								Du hast einen Gutscheincode? ▼
+							</button>
+                    </h2>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div style="
+									display: flex;
+									flex-wrap: nowrap;
+									justify-content: flex-start;
+									align-items: flex-start;
+								" class="card-body">
+                            <p class="mr-1">Voucher Code(Optional)</p>
+                            <input type="text" id="voucher" placeholder="voucher code..." />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="flex-wrap: wrap; align-content: center; justify-content: center" class="row">
+            <img src="https://www.digistore24.com//pb/webinc/bf1a31c7/images/seals/ssl_secured.svg" class="seal" width="130" height="50" alt="" />
+            <img src="https://www.digistore24.com//pb/webinc/bf1a31c7/images/seals/secure_payments.svg" class="seal" width="150" height="70" alt="" />
+            <img src="https://www.digistore24.com//pb/webinc/bf1a31c7/images/seals/virus_scanned.svg" class="seal" width="150" height="70" alt="" />
+        </div>
+        <div class="mt-5">
+            <h3>Hints</h3>
+            <ul>
+                <li>
+                    <p>
+                        Dealer and contractual partner is Digistore24 GmbH, St.-Godehard-Straße 32, 31139 Hildesheim, Germany, customer service: email
+                        <a href="mailto:support@digistore24.com">support@digistore24.com</a
+							>
+							/ fax +49 (5121) 9289223
+						</p>
+					</li>
+					<li>
+						<p>
+							By submitting the order, you accept the terms and conditions and
+							the data protection regulations of Digistore24 as part of the
+							concluded purchase contract and confirm that you have taken note
+							of your right of withdrawal as a consumer .
+						</p>
+					</li>
+					<li>
+						<p>
+							Digital products are shipped immediately after receipt of payment.
+							Shipping Products will be shipped within 7 days after payment is
+							received.
+						</p>
+					</li>
+					<li>
+						<p>
+							The European Commission provides a platform for online dispute
+							resolution (OS). You can find the platform at
+							https://ec.europa.eu/consumers/odr/
+						</p>
+					</li>
+					<li>
+						<p>
+							If you have problems contacting the author of the product and have
+							any questions, please feel free to contact us at:
+							support@digistore24.com
+						</p>
+					</li>
+					<li>
+						<p>
+							After the successful purchase you will be directed to the download
+							page and immediately after this order you will have access to the
+							product you have ordered. If it is a shipping product, it will be
+							shipped immediately after your order.
+						</p>
+					</li>
+					<li>
+						<p>
+							The author of the purchased product/software or the seminar
+							organizer can contact you by email.
+						</p>
+					</li>
+				</ul>
+			</div>
+			<a href="#top">Up</a>
+        </div>
+        <script>
+            const toggleCheckBox = (e) => {
+                if (event.target.checked) {
+                    setPrice(19);
+                } else {
+                    setPrice(0);
+                }
+            };
+
+            const setPrice = (price) => {
+                document.getElementById("subTotal").innerHTML =
+                    parseFloat(price).toFixed(2);
+                document.getElementById("Total").innerHTML =
+                    parseFloat(price).toFixed(2);
+            };
+        </script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>

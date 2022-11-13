@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        [data-style="mypops"]+.popover {
+            background: #4194ca;
+        }
+        
+        [data-style="mypops"]+.popover.bottom .arrow:after {
+            border-bottom-color: #4194ca;
+        }
+        
+        [data-style="mypops"]+.popover-content {}
+        
+        .popovermenu {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        .popovermenu li {}
+        
+        .popovermenu li a {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css" />
+    <div class="col-sm-4">
+        <p>
+            <span class="glyphicon glyphicon-info-sign" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-style="mypops" id="Pops"></span>
+        </p>
+        <div id="popover-content" class="hide">
+            <ul class="popovermenu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Separated link</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        $("#Pops").popover({
+            html: true,
+            content: function() {
+                return $("#popover-content").html();
+            },
+        });
+    </script>
+</body>
+
+</html>
